@@ -13,6 +13,9 @@
 		test_video.style.width = window.innerWidth + "px"; 
 		test_video.style.height = window.innerHeight + "px"; 
 		}
+		document.addEventListener(“WeixinJSBridgeReady”, function() { 
+		document.getElementById(‘video’).play(); 
+		}, false);
 	</script>
 	</body>
 </html>
