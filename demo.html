@@ -10,14 +10,24 @@
 	<body>
 	<video id="video" class="video" preload="auto" playsinline src="http://wqs.jd.com/promote/superfestival/superfestival.mp4"  type="video/mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true" autoplay></video>
 	<script>
-		window.onresize = function(){ 
-		var test_video=document.getElementById('video');
-		test_video.style.width = window.innerWidth + "px"; 
-		test_video.style.height = window.innerHeight + "px"; 
-		}
 		document.addEventListener("WeixinJSBridgeReady", function() { 
 		document.getElementById('video').play(); 
 		}, false);
+		handleResize()
+		function handleResize() {
+		var sWidth = 9
+		var sHeight = 16
+		var width = window.innerWidth
+		var height = window.innerHeight
+		var marginTop = height - (width * sHeight) / sWidth
+		 
+		marginTop = Math.round(marginTop)
+		if (marginTop < -2) {
+		video.$wrapper.css('marginTop', marginTop / 2 + 'px')
+		} else {
+		video.$wrapper.css('marginTop', '0')
+		}
+		}
 	</script>
 	</body>
 </html>
