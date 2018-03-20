@@ -7,14 +7,15 @@
 		<title>视频</title>
 	</head>
 	<body>
-	<video src="movie.webm" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="landscape|portrait"  autoplay/> 
+	<video src="movie.mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="landscape|portrait"  autoplay id='video'/> 
 	<script>
 		window.onresize = function(){ 
+		var test_video=document.getElementById('video');
 		test_video.style.width = window.innerWidth + "px"; 
 		test_video.style.height = window.innerHeight + "px"; 
 		}
 		document.addEventListener(“WeixinJSBridgeReady”, function() { 
-		document.getElementById(‘video’).play(); 
+		document.getElementById('video').play(); 
 		}, false);
 	</script>
 	</body>
