@@ -8,16 +8,14 @@
 		<script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
 	</head>
 	<body>
-	<!-- <video src="movie.mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="landscape|portrait"  autoplay id='video'/>  -->
-
-	<video id="video" class="video" preload="auto" playsinline src="http://wqs.jd.com/promote/superfestival/superfestival.mp4" width="1" height="1" type="video/mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true"></video>
+	<video id="video" class="video" preload="auto" playsinline src="http://wqs.jd.com/promote/superfestival/superfestival.mp4"  type="video/mp4" x5-video-player-type="h5" x5-video-player-fullscreen="true" autoplay></video>
 	<script>
 		window.onresize = function(){ 
 		var test_video=document.getElementById('video');
 		test_video.style.width = window.innerWidth + "px"; 
 		test_video.style.height = window.innerHeight + "px"; 
 		}
-		document.addEventListener(“WeixinJSBridgeReady”, function() { 
+		document.addEventListener("WeixinJSBridgeReady", function() { 
 		document.getElementById('video').play(); 
 		}, false);
 	</script>
