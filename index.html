@@ -1,0 +1,72 @@
+<!DOCTYPE html> <html lang=zh-CN> <head> <meta charset=UTF-8> <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"> <meta name=format-detection content="telephone=no"> <title>ELF Video Template</title> 
+<!-- begin REM Zoom 计算 -->
+<script type="text/javascript">
+  (function (win) {
+    var remCalc = {};
+    var docEl = win.document.documentElement,
+      tid,
+      hasRem = true,
+      hasZoom = true,
+      designWidth = 750;
+
+    function refresh() {
+      var width = docEl.getBoundingClientRect().width;
+      // if (width > 640) { width = 640 }
+      if (hasRem) {
+        var rem = width / 10;
+        docEl.style.fontSize = rem + "px";
+        remCalc.rem = rem;
+        var actualSize = parseFloat(window.getComputedStyle(document.documentElement)["font-size"]);
+        if (actualSize !== rem && actualSize > 0 && Math.abs(actualSize - rem) > 1) {
+          var remScaled = rem * rem / actualSize;
+          docEl.style.fontSize = remScaled + "px"
+        }
+      }
+      if (hasZoom) {
+        var style = document.getElementById('J__style')
+        if (!style) {
+          style = document.createElement('style')
+          style.id = 'J__style'
+        }
+        style.innerHTML = '.__z{zoom:' + width / designWidth + '}'
+        document.getElementsByTagName('head')[0].appendChild(style)
+      }
+    }
+
+    function dbcRefresh() {
+      clearTimeout(tid);
+      tid = setTimeout(refresh, 100)
+    }
+    win.addEventListener("resize", function () {
+      dbcRefresh()
+    }, false);
+
+    win.addEventListener("pageshow", function (e) {
+      if (e.persisted) {
+        dbcRefresh()
+      }
+    }, false);
+    refresh();
+    if (hasRem) {
+      remCalc.refresh = refresh;
+      remCalc.rem2px = function (d) {
+        var val = parseFloat(d) * this.rem;
+        if (typeof d === "string" && d.match(/rem$/)) {
+          val += "px"
+        }
+        return val
+      };
+      remCalc.px2rem = function (d) {
+        var val = parseFloat(d) / this.rem;
+        if (typeof d === "string" && d.match(/px$/)) {
+          val += "rem"
+        }
+        return val
+      };
+      win.remCalc = remCalc
+    }
+  })(window);
+
+</script>
+<!-- end REM Zoom 计算 -->
+ <link href="app.css" rel="stylesheet"></head> <body> <div id=o2_loading class=loading> <div class=btns> <a class="btn begin">开始播放视频</a> </div> </div> <div id=o2_main class=main> <div class=wrapper> <video id=video class=video preload=auto playsinline src=http://wqs.jd.com/promote/superfestival/superfestival.mp4 width=1 height=1 type=video/mp4></video> </div> <div class="btns control"> <a class="btn continue">继续</a> <a class="btn skip">跳过</a> </div> <div class=poster></div> </div> <div id=o2_end class="end hide"> <div class=btns> <a class="btn replay">再看一次</a> </div> </div> <div class=tip></div> <script type="text/javascript" src="bundle.js"></script></body> </html> 
