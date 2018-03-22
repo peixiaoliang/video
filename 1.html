@@ -111,6 +111,9 @@
     }
     //获取videojs生成的video
     var myPlayer = document.getElementById("videoLive");
+    	wx.ready(function(){
+			myPlayer.play();
+		})
     //播放按钮
     var oPlayBtn = document.getElementById("playBtn");
     //获取视频盒子
@@ -143,9 +146,7 @@
 		document.addEventListener("WeixinJSBridgeReady", function() { 
 		myPlayer.play(); 
 		}, false);
-		wx.ready(function(){
-			myPlayer.play();
-		})
+		
 
 
     //播放按钮呗点击
