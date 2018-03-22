@@ -143,6 +143,10 @@
 		document.addEventListener("WeixinJSBridgeReady", function() { 
 		myPlayer.play(); 
 		}, false);
+		wx.ready(function(){
+			myPlayer.play();
+		})
+
 
     //播放按钮呗点击
     oPlayBtn.onclick = function () {
