@@ -29,6 +29,11 @@
         document.getElementById('video').play(); 
         document.getElementById('car_audio').play(); 
     }, false); 
+    wx.getNetworkType({
+  success: function (res) {
+     document.getElementById('video').play();
+  }
+});
 </script> 
 </body>
 </html>
