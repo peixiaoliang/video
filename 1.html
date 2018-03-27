@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <style>
         html,body{
+            padding: 0px;
+            margin: 0px;
             width:100%;height:100%;
             overflow: hidden;
         }
@@ -47,7 +49,7 @@
             display: block;
             border: none;
             z-index: 1000;
-            /*width: 100%;*/
+            width: 100%;
             background-size: 100px;
         }
 
@@ -121,11 +123,11 @@
         fScroll.refresh();
     }
         autoWH();
-    	/*myPlayer.play(); 
+    	// myPlayer.play(); 
 		document.addEventListener("WeixinJSBridgeReady", function() { 
 		myPlayer.play(); 
 		}, false);
-		*/
+		
 
 
     /*//播放按钮呗点击
@@ -137,11 +139,13 @@
   <script src="js/jquery-1.7.2.js"></script>
   <script>
   $(function(){
+    document.addEventListener("WeixinJSBridgeReady", function() { 
         var video=$('video')[0]
             $('.button').click(function(){
                 $('.button').css('display','none');
                 video.play();
             })
+        }, false);
   })
   </script>
 </body>
