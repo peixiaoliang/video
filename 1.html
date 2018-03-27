@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>视频</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <style>
         html,body{
@@ -146,6 +146,18 @@
                 video.play();
             })
         }, false);
+        wx.ready(function(){
+            var video=$('video')[0]
+            $('.button').click(function(){
+                $('.button').css('display','none');
+                video.play();
+            })
+        })
+        var video=$('video')[0]
+            $('.button').click(function(){
+                $('.button').css('display','none');
+                video.play();
+            })
   })
   </script>
 </body>
